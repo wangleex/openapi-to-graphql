@@ -199,7 +199,7 @@ export function getResolver({
       args,
       data
     )
-    const url = baseUrl + path
+    const url = baseUrl + operation.operationId.split(':')[1]
 
     /**
      * The Content-type and accept property should not be changed because the
