@@ -116,8 +116,8 @@ function getResolver({ operation, argsFromLink = {}, payloadName, data, baseUrl,
         // Stored used parameters to future requests:
         resolveData.usedParams = Object.assign(resolveData.usedParams, args);
         // Build URL (i.e., fill in path parameters):
-        const { path, query, headers } = Oas3Tools.instantiatePathAndGetQuery(operation.path, operation.parameters, args, data);
-        const url = baseUrl + operation.operationId.split(':')[1];
+        const { path, query, headers } = Oas3Tools.instantiatePathAndGetQuery(operation.operationId.split(':')[1], operation.parameters, args, data);
+        const url = baseUrl + path;
         /**
          * The Content-type and accept property should not be changed because the
          * object type has already been created and unlike these properties, it

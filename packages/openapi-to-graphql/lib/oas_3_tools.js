@@ -14,8 +14,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // Imports:
-const Swagger2OpenAPI = require("swagger2openapi");
-const OASValidator = require("oas-validator");
+const Swagger2OpenAPI = require("swagger2openapi-lxwang2");
+const OASValidator = require("oas-validator-lxwang2");
 const debug_1 = require("debug");
 const utils_1 = require("./utils");
 const pluralize = require("pluralize");
@@ -50,7 +50,7 @@ function getValidOAS3(spec) {
         else if (typeof spec.openapi === 'string' &&
             /^3/.test(spec.openapi)) {
             preprocessingLog(`Received OpenAPI Specification 3.0.x - going to validate...`);
-            const valid = OASValidator.validateSync(spec, {});
+            const valid = OASValidator.validateInner(spec, {});
             if (!valid) {
                 throw new Error(`Validation of OpenAPI Specification failed.`);
             }

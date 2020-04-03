@@ -194,12 +194,12 @@ export function getResolver({
 
     // Build URL (i.e., fill in path parameters):
     const { path, query, headers } = Oas3Tools.instantiatePathAndGetQuery(
-      operation.path,
+      operation.operationId.split(':')[1],
       operation.parameters,
       args,
       data
     )
-    const url = baseUrl + operation.operationId.split(':')[1]
+    const url = baseUrl + path
 
     /**
      * The Content-type and accept property should not be changed because the

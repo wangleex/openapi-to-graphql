@@ -34,8 +34,8 @@ import {
 import { InternalOptions } from './types/options'
 
 // Imports:
-import * as Swagger2OpenAPI from 'swagger2openapi'
-import * as OASValidator from 'oas-validator'
+import * as Swagger2OpenAPI from 'swagger2openapi-lxwang2'
+import * as OASValidator from 'oas-validator-lxwang2'
 import debug from 'debug'
 import { handleWarning } from './utils'
 import * as pluralize from 'pluralize'
@@ -109,7 +109,7 @@ export async function getValidOAS3(spec: Oas2 | Oas3): Promise<Oas3> {
     preprocessingLog(
       `Received OpenAPI Specification 3.0.x - going to validate...`
     )
-    const valid = OASValidator.validateSync(spec, {})
+    const valid = OASValidator.validateInner(spec, {})
     if (!valid) {
       throw new Error(`Validation of OpenAPI Specification failed.`)
     }
